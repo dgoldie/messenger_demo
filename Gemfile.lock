@@ -200,12 +200,6 @@ GEM
     pg (0.21.0)
     pgcli-rails (0.2.1)
       railties (>= 4.2.0)
-    postmark (1.10.0)
-      json
-      rake
-    postmark-rails (0.15.0)
-      actionmailer (>= 3.0.0)
-      postmark (~> 1.10.0)
     powerpack (0.1.1)
     pry (0.11.2)
       coderay (~> 1.1.0)
@@ -376,7 +370,6 @@ DEPENDENCIES
   overcommit (>= 0.37.0)
   pg (~> 0.18)
   pgcli-rails
-  postmark-rails
   puma (~> 3.7)
   rack-livereload
   rails (= 5.1.4)
