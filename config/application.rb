@@ -1,6 +1,6 @@
-require_relative 'boot'
+require_relative "boot"
 
-require 'rails/all'
+require "rails/all"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -21,5 +21,9 @@ module MessengerDemo
     # Ensure non-standard paths are eager-loaded in production
     # (these paths are also autoloaded in development mode)
     # config.eager_load_paths += %W(#{config.root}/lib)
+
+    # Auto-load /bot and its subdirectories
+    config.paths.add File.join("app", "bot"), :glob => File.join("**", "*.rb")
+    config.autoload_paths += Dir[Rails.root.join("app", "bot", "*")]
   end
 end

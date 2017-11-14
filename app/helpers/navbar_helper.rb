@@ -11,7 +11,7 @@ module NavbarHelper
   #           :active_when => { :controller => "home" }) %>
   #
   def navbar_link_to(label, path, options={})
-    active_when = options.delete(:active_when) { Hash.new }
+    active_when = options.delete(:active_when) { {} }
     active = active_when.all? do |key, value|
       case value
       when Regexp
