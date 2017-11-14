@@ -2,7 +2,7 @@ namespace :bot_setup do
   desc "Create get started button"
   task :get_started_button_create => :environment do
     Facebook::Messenger::Profile.set(
-      get_started_profile,
+      profile_get_started,
       :access_token => ENV["ACCESS_TOKEN"]
     )
 

@@ -4,6 +4,8 @@ source "https://rubygems.org"
 #   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
 #   "https://github.com/#{repo_name}.git"
 # end
+#
+ruby "2.4.2"
 
 gem "active_type", ">= 0.3.2"
 gem "autoprefixer-rails", ">= 5.0.0.1"
