@@ -28,3 +28,17 @@ Bot.on :message do |message|
     :access_token => ENV["ACCESS_TOKEN"]
   )
 end
+
+Bot.on :postback do |postback|
+  case postback.payload
+  when "SETUP_BOT"
+    msg = "Hello, I am your personal lifelog assistant, "
+    msg << "let me help you with setup procedure"
+    postback.reply(:text => msg)
+  when "RESET"
+    # TODO: we will implement reset functionality soon
+    postback.reply(:text => "Reset has been completed")
+  else
+    Rails.logger.warn("Unhandled postback")
+  end
+end
