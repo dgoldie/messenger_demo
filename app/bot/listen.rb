@@ -18,16 +18,16 @@ Facebook::Messenger::Subscriptions.subscribe(
 # message.sent_at     # => 2016-04-22 21:30:36 +0200
 # message.text        # => 'Hello, bot!'
 #
-Bot.on :message do |message|
-  Rails.logger.info "got your message = #{message.inspect}"
-  Bot.deliver(
-    {
-      :recipient => message.sender,
-      :message => { :text => message.text + ": Hello human! from the bot!" }
-    },
-    :access_token => ENV["ACCESS_TOKEN"]
-  )
-end
+# Bot.on :message do |message|
+#   Rails.logger.info "got your message = #{message.inspect}"
+#   Bot.deliver(
+#     {
+#       :recipient => message.sender,
+#       :message => { :text => message.text + ": Hello human! from the bot!" }
+#     },
+#     :access_token => ENV["ACCESS_TOKEN"]
+#   )
+# end
 
 Bot.on :postback do |postback|
   case postback.payload
