@@ -19,6 +19,7 @@ Facebook::Messenger::Subscriptions.subscribe(
 # message.text        # => 'Hello, bot!'
 #
 Bot.on :message do |message|
+  Rails.logger.info "got your message = #{message.inspect}"
   Bot.deliver(
     {
       :recipient => message.sender,
