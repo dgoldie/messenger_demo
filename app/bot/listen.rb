@@ -44,16 +44,6 @@ Bot.on :postback do |postback|
 end
 
 Facebook::Messenger::Profile.set(
-  profile_get_started,
-  :access_token => ENV["ACCESS_TOKEN"]
-)
-
-Facebook::Messenger::Profile.set(
-  profile_create_menu,
-  :access_token => ENV["ACCESS_TOKEN"]
-)
-
-def profile_get_started
   {
     :setting_type => "call_to_actions",
     :thread_state => "new_thread",
@@ -62,10 +52,11 @@ def profile_get_started
         :payload => "SETUP_BOT"
       }
     ]
-  }
-end
+  },
+  :access_token => ENV["ACCESS_TOKEN"]
+)
 
-def profile_create_menu
+Facebook::Messenger::Profile.set(
   {
     :setting_type => "call_to_actions",
     :thread_state => "existing_thread",
@@ -76,5 +67,6 @@ def profile_create_menu
         :payload => "RESET"
       }
     ]
-  }
-end
+  },
+  :access_token => ENV["ACCESS_TOKEN"]
+)
