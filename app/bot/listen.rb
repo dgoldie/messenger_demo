@@ -42,3 +42,39 @@ Bot.on :postback do |postback|
     Rails.logger.warn("Unhandled postback")
   end
 end
+
+Facebook::Messenger::Profile.set(
+  profile_get_started,
+  :access_token => ENV["ACCESS_TOKEN"]
+)
+
+Facebook::Messenger::Profile.set(
+  profile_create_menu,
+  :access_token => ENV["ACCESS_TOKEN"]
+)
+
+def profile_get_started
+  {
+    :setting_type => "call_to_actions",
+    :thread_state => "new_thread",
+    :call_to_actions => [
+      {
+        :payload => "SETUP_BOT"
+      }
+    ]
+  }
+end
+
+def profile_create_menu
+  {
+    :setting_type => "call_to_actions",
+    :thread_state => "existing_thread",
+    :call_to_actions => [
+      {
+        :type => "postback",
+        :title => "Reset settings",
+        :payload => "RESET"
+      }
+    ]
+  }
+end
